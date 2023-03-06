@@ -2,6 +2,8 @@ import 'package:bank_sha/ui/shared/theme.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/button.dart';
+
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({super.key});
 
@@ -99,39 +101,21 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 currentIndex == 2
                     ? Column(
                         children: [
-                          SizedBox(
-                            width: double.infinity,
-                            height: 50,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor: purpleColor,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(56),
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: Text(
-                                'Continue',
-                                style: whiteTextStyle.copyWith(
-                                    fontSize: 16, fontWeight: semiBold),
-                              ),
-                            ),
+                          CustomFilledButton(
+                            title: 'Get Started',
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/sign-up');
+                            },
                           ),
                           const SizedBox(
                             height: 20,
                           ),
-                          SizedBox(
-                            width: double.infinity,
-                            height: 24,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero),
-                              onPressed: () {},
-                              child: Text(
-                                'Sign In',
-                                style: greyTextStyle.copyWith(fontSize: 16),
-                              ),
-                            ),
+                          CustomTextButton(
+                            title: 'Sign In',
+                            onPressed: () {
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, '/sign-in', ((route) => false));
+                            },
                           ),
                           const SizedBox(
                             height: 20,
